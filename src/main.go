@@ -6,8 +6,11 @@ import (
 	"net/http"
 )
 
-func sayHello(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("hah"))
+func indexPage(w http.ResponseWriter, r *http.Request) {
+	//w.Header().Set("Content-Type", "text/html")
+	w.Header().Add("Content-Type", "text/html")
+	t, _ := template.ParseFiles("view/page/index.html")
+	t.Execute(w, nil)
 }
 
 func login(w http.ResponseWriter, r *http.Request) {
@@ -19,14 +22,14 @@ func login(w http.ResponseWriter, r *http.Request) {
 
 	} else {
 		r.ParseForm()
-		var temp = r.Form["password"][0] + r.Form["username"][0]
+		var temp = r.Form["username"][0] + r.Form["password"][0]
 		w.Write([]byte(temp))
 	}
 }
 
 func main() {
 
-	http.HandleFunc("/", sayHello)
+	http.HandleFunc("/", indexPage)
 	http.HandleFunc("/login", login)
 
 	err := http.ListenAndServe(":9090", nil)
