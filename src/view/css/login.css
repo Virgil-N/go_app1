@@ -13,7 +13,7 @@ body{
 	margin-bottom: 0;
 }
 
-/*让登录输入块垂直居中*/
+/*---------------让登录输入块垂直居中---------------*/
 #header+div{
 	position: absolute;
 	top: 0;

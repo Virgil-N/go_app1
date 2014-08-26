@@ -1,0 +1,20 @@
+/*---------------全局---------------*/
+body{
+	padding-top:70px;
+}
+.article-text{
+	text-indent: 2em;
+}
+.article-text:first-letter{
+	font-size: 2em;
+}
+/*---------------header---------------*/
+#head-picture{
+	width:100%;
+}
+
+
+/*---------------主体部分---------------*/
+
+
+
