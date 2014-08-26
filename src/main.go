@@ -1,18 +1,37 @@
 package main
 
 import (
-	"fmt"
+	"html/template"
 	"log"
 	"net/http"
 )
 
-func main() {
-	fmt.Println("start")
-	http.HandleFunc("/login", func(w http.ResponseWriter, r *http.Request) {
-		var responseText = "ok"
-		w.Write([]byte(responseText))
-	})
+func sayHello(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("hah"))
+}
 
-	http.ListenAndServe(":8080", nil)
+func login(w http.ResponseWriter, r *http.Request) {
+
+	if r.Method == "GET" {
+		w.Header().Add("Content-Type", "text/html")
+		t, _ := template.ParseFiles("view/page/login.html")
+		t.Execute(w, nil)
+
+	} else {
+		r.ParseForm()
+		var temp = r.Form["password"][0] + r.Form["username"][0]
+		w.Write([]byte(temp))
+	}
+}
+
+func main() {
+
+	http.HandleFunc("/", sayHello)
+	http.HandleFunc("/login", login)
+
+	err := http.ListenAndServe(":9090", nil)
+	if err != nil {
+		log.Fatalln("err: ", err)
+	}
 	log.Fatalln("listening")
 }
