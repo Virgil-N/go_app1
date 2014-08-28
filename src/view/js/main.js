@@ -4,4 +4,4 @@ require.config({
 		"jquery": "../js/lib/jquery-1.11.1",
 		"bootstrap": "../js/lib/bootstrap"
 	}
-})
+});
