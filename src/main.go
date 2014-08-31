@@ -1,32 +1,53 @@
+//注释的代码也可以正常运行的
 package main
 
 import (
-	"controller/login"
-	"html/template"
-	"log"
-	"net/http"
+	"fmt"
+	"labix.org/v2/mgo"
+	// "labix.org/v2/mgo/bson"
 )
 
-func indexPage(w http.ResponseWriter, r *http.Request) {
-	w.Header().Add("Content-Type", "text/html")
-	t, _ := template.ParseFiles("./view/page/index.html")
-	t.Execute(w, nil)
+type Test struct {
+	//字段名字必须首字母大写
+	Title string
+	By    string
 }
 
 func main() {
-	//静态文件处理函数，这些表明根目录是src？
-	http.Handle("/css/", http.FileServer(http.Dir("view")))
-	http.Handle("/js/", http.FileServer(http.Dir("view")))
-	http.Handle("/img/", http.FileServer(http.Dir("view")))
-
-	//动态文件处理函数
-	http.HandleFunc("/", indexPage)
-	//使用外部包函数
-	http.HandleFunc("/login", login.Login)
-	//注册服务并监听
-	err := http.ListenAndServe(":9090", nil)
+	session, err := mgo.Dial("localhost:27017")
 	if err != nil {
-		log.Fatalln("err: ", err)
+		panic(err)
 	}
-	log.Fatalln("listening")
+	defer session.Close()
+
+	// Optional. Switch the session to a monotonic behavior.
+	session.SetMode(mgo.Monotonic, true)
+
+	//选择数据库和集合
+	c := session.DB("db1").C("test1")
+	/*
+		err = c.Insert(&Person{"Ale", "+55 53 8116 9639"},
+			&Person{"Cla", "+55 53 8402 8510"})
+		if err != nil {
+			panic(err)
+		}
+
+		result := Person{}
+		err = c.Find(bson.M{"name": "Ale"}).One(&result)
+		if err != nil {
+			panic(err)
+		}
+	*/
+
+	result := []Test{}
+	err = c.Find(nil).All(&result)
+	if err != nil {
+		panic(err)
+	}
+
+	for i, length := 0, len(result); i < length; i++ {
+		//字段名字必须首字母大写
+		fmt.Println("title: ", result[i].Title, " by: ", result[i].By)
+	}
+	//fmt.Println("name: ", result[0].Title)
 }
