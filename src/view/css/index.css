@@ -12,7 +12,9 @@ body{
 #head-picture{
 	width:100%;
 }
-
+#login-link{
+	float:right;
+}
 
 /*---------------主体部分---------------*/
 
@@ -23,4 +25,7 @@ body{
 }
 #head-picture{
 	margin-bottom: 20px;
+}
+#tag-area a{
+	margin:5px;
 }
