@@ -27,10 +27,13 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		t.Execute(w, nil)
 	} else {
 		username := r.FormValue("username")
+		password := r.FormValue("password")
 		w.Header().Set("Content-Type", "text/plain")
 		//暂时用“tom”，以后换数据库的数据
-		if username == "tom" {
+		if username == "tom" && password == "12345" {
 			io.WriteString(w, "matched")
+			//添加cookie
+
 		} else {
 			io.WriteString(w, "not matched")
 		}
