@@ -1,7 +1,12 @@
 require(["jquery", "common"], function($, commonFunction) {
+	//时间选择插件
+	// $('#datetimepicker').datetimepicker({
+	//     format: 'yyyy-mm-dd hh:ii'
+	// });
+	
+	//重复的代码（与index.js的代码一样，到时候得统一引用）
 	var COOKIE_NAME = "testMyCookie";
-
-    //判断是否有cookie，动态显示状态，跳转到登录页面
+	//判断用户是否已登录
     var cookieValue=commonFunction.getCookie(COOKIE_NAME);
     if(cookieValue&&cookieValue==="success"){
         $("#login-link a").text("退出"); 

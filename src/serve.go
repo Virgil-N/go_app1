@@ -1,6 +1,7 @@
 package main
 
 import (
+	"controller/account"
 	"controller/login"
 	"html/template"
 	"log"
@@ -23,6 +24,7 @@ func main() {
 	http.HandleFunc("/", indexPage)
 	//使用外部包函数
 	http.HandleFunc("/login", login.Login)
+	http.HandleFunc("/account", account.Account)
 	//注册服务并监听
 	err := http.ListenAndServe(":9090", nil)
 	if err != nil {

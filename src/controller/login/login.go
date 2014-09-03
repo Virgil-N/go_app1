@@ -52,8 +52,8 @@ func Login(w http.ResponseWriter, r *http.Request) {
 				MaxAge:  86400,
 			}
 			http.SetCookie(w, &myCookie)
-			// fmt.Println(myCookie)
-			// fmt.Println(adminUser)
+			fmt.Println(myCookie)
+			fmt.Println(adminUser)
 			io.WriteString(w, "success")
 		} else {
 			io.WriteString(w, "fail")
