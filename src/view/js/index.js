@@ -25,5 +25,12 @@ require(["jquery"], function($) {
         },
         
     };
+    //判断是否有cookie，动态显示状态，跳转到登录页面
+    var cookieValue=wrap.getCookie("testMyCookie");
+    if(cookieValue&&cookieValue==="success"){
+        $("#login-link a").text("退出");
+        //删除cookie
+        wrap.setCookie("testMyCookie", "fail", -1);
+    }
 
 });

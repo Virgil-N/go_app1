@@ -12,13 +12,11 @@ import (
 
 type User struct {
 	Username string
-	Age      string
+	Age      int
 	Gender   string
 	Password string
-	Married  string
-	Score    int
-	Likes    []string
-	Friends  []string
+	Article  []string
+	Comment  []string
 }
 
 func Login(w http.ResponseWriter, r *http.Request) {
@@ -30,27 +28,8 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		username := r.FormValue("username")
 		password := r.FormValue("password")
 		w.Header().Set("Content-Type", "text/plain")
-		//暂时用“tom”，以后换数据库的数据
-		/*
-			if username == "tom" && password == "12345" {
-				//添加cookie(注意添加cookie必须放在服务器返回数据之前)
-				expires := time.Now().AddDate(0, 0, 1)
-				myCookie := http.Cookie{
-					Name:    "testMyCookie",
-					Value:   "hello everyone",
-					Path:    "/login",
-					Expires: expires, //可加可不加？
-					MaxAge:  86400,
-				}
-				http.SetCookie(w, &myCookie)
-				fmt.Println(myCookie)
 
-				io.WriteString(w, "matched")
-			} else {
-				io.WriteString(w, "not matched")
-			}
-		*/
-		//换成数据库，哈哈
+		//使用数据库，哈哈
 		session, err := mgo.Dial("localhost:27017")
 		if err != nil {
 			panic(err)
@@ -60,8 +39,9 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		session.SetMode(mgo.Monotonic, true)
 		c := session.DB("db1").C("user")
 		var adminUser User
-		c.Find(bson.M{"username": "tom"}).One(&adminUser)
-		if adminUser.Username == username && adminUser.Password == password {
+		c.Find(bson.M{"username": username}).One(&adminUser)
+
+		if adminUser.Password == password && username != "" && password != "" {
 			//设置cookie
 			expires := time.Now().AddDate(0, 0, 1)
 			myCookie := http.Cookie{
@@ -72,8 +52,8 @@ func Login(w http.ResponseWriter, r *http.Request) {
 				MaxAge:  86400,
 			}
 			http.SetCookie(w, &myCookie)
-			fmt.Println(myCookie)
-			fmt.Println(username, password)
+			// fmt.Println(myCookie)
+			// fmt.Println(adminUser)
 			io.WriteString(w, "success")
 		} else {
 			io.WriteString(w, "fail")
