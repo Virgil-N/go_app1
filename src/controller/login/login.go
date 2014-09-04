@@ -14,6 +14,7 @@ type User struct {
 	Username string
 	Age      int
 	Gender   string
+	Nickname string
 	Password string
 	Article  []string
 	Comment  []string
@@ -46,7 +47,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 			expires := time.Now().AddDate(0, 0, 1)
 			myCookie := http.Cookie{
 				Name:    "testMyCookie",
-				Value:   "success",
+				Value:   username,
 				Path:    "/",     //所有页面都可以读取cookie
 				Expires: expires, //可加可不加？
 				MaxAge:  86400,

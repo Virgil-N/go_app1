@@ -7,7 +7,14 @@ body{
 .article-text:first-letter{
 	font-size: 2em;
 }
-
+/*---------------nav---------------*/
+#nickname{
+	height:50px;
+	line-height: 50px;
+}
+#nickname a{
+	display: inline-block;
+}
 /*---------------header---------------*/
 #head-picture{
 	width:100%;

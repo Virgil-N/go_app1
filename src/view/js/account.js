@@ -8,14 +8,14 @@ require(["jquery", "common"], function($, commonFunction) {
 	var COOKIE_NAME = "testMyCookie";
 	//判断用户是否已登录
     var cookieValue=commonFunction.getCookie(COOKIE_NAME);
-    if(cookieValue&&cookieValue==="success"){
-        $("#login-link a").text("退出"); 
+    if(cookieValue.length>0){
+        $("#login-logout a").text("退出"); 
     }else{
-        $("#login-link a").text("登录"); 
+        $("#login-logout a").text("登录"); 
     }
 
     //用户退出删除cookie
-    $("#login-link a").click(function(){
+    $("#login-logout a").click(function(){
         if($(this).text()==="退出"){
             commonFunction.setCookie(COOKIE_NAME, "fail", -1);
         }

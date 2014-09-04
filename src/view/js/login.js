@@ -13,9 +13,9 @@ require(["jquery"], function($){
 			data: formData,
 			success: function(responseText){
 				if(responseText==="success"){
-					window.location.href="/"
+					window.location.href="/";
 				}else{
-					alert("用户名或密码错误！")
+					alert("用户名或密码错误！");
 				}
 			}
 		});
