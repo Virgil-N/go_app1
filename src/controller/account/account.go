@@ -7,6 +7,7 @@ import (
 	"labix.org/v2/mgo"
 	"labix.org/v2/mgo/bson"
 	"net/http"
+	"os"
 )
 
 type User struct {
@@ -37,9 +38,23 @@ func Account(w http.ResponseWriter, r *http.Request) {
 		c.Find(bson.M{"username": myCookieValue}).One(&adminUser)
 		fmt.Println("search result: ", adminUser.Nickname)
 		//现在就剩模板的部分了，哈哈
+		//该死的模板
+		w.Header().Add("Content-Type", "text/html")
+		data := User{
+			Username: "alice",
+			Age:      24,
+			Gender:   "F",
+			Nickname: "aa",
+			Password: "12345",
+			Article:  []string{"hi", "o"},
+			Comment:  []string{"hello", "tips"},
+		}
+		tpl := template.New("")
+		tpl.Parses("view/page/account.html")
+		tpl.Execute(w, data)
 	}
-	w.Header().Add("Content-Type", "text/html")
-	t, _ := template.ParseFiles("view/page/account.html")
-	t.Execute(w, nil)
+	// w.Header().Add("Content-Type", "text/html")
+	// t, err := template.ParseFiles("view/page/account.html")
+	// t.Execute(w, nil)
 
 }

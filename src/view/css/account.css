@@ -9,8 +9,7 @@ body{
 }
 /*---------------nav---------------*/
 #nickname{
-	height:50px;
-	line-height: 50px;
+	
 }
 #nickname a{
 	display: inline-block;
