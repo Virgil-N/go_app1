@@ -4,10 +4,10 @@ require(["jquery", "common"], function($, commonFunction) {
     //判断是否有cookie，动态显示状态，跳转到登录页面
     var cookieValue=commonFunction.getCookie(COOKIE_NAME);
     if(cookieValue.length>0){
-        $("#nickname").html("欢迎您，<a href='/account'>"+cookieValue+"</a>");
+        $("#nickname").html("欢迎您，<a href='/accountAction'>"+cookieValue+"</a>");
         $("#login-logout a").text("退出"); 
     }else{
-        $("#nickname").html("<a href='/account'></a>");
+        $("#nickname").html("<a href='/accountAction'></a>");
         $("#login-logout a").text("登录"); 
     }
 
