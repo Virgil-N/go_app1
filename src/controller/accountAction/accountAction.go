@@ -3,11 +3,9 @@ package accountAction
 import (
 	"fmt"
 	"html/template"
-	// "io"
 	"labix.org/v2/mgo"
 	"labix.org/v2/mgo/bson"
 	"net/http"
-	// "os"
 )
 
 type User struct {
@@ -40,21 +38,9 @@ func AccountAction(w http.ResponseWriter, r *http.Request) {
 		//现在就剩模板的部分了，哈哈
 		//该死的模板(我错了，原来是路径搞的鬼！！！已经把account改成accountAction了，md查找原因花了1天时间！！)
 		w.Header().Add("Content-Type", "text/html")
-		data := User{
-			Username: "alice",
-			Age:      24,
-			Gender:   "F",
-			Nickname: "aa",
-			Password: "12345",
-			Article:  []string{"hi", "o"},
-			Comment:  []string{"hello", "tips"},
-		}
 		t, _ := template.ParseFiles("view/page/account.html")
 		//t.ExecuteTemplate(w, "tags", data)//为毛把原页面移除了？
-		err = t.Execute(w, data) //这个是ok的，嘿嘿
+		err = t.Execute(w, adminUser) //这个是ok的，嘿嘿
 	}
-	// w.Header().Add("Content-Type", "text/html")
-	// t, err := template.ParseFiles("view/page/account.html")
-	// t.Execute(w, nil)
 
 }
