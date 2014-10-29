@@ -40,7 +40,9 @@ func Register(w http.ResponseWriter, r *http.Request) {
 	// } else if adminUser.username != username && username != "" {
 	// 	return "succes"
 	// }
-	if adminUser.Username == username || username == "" {
+	if username == "" {
+		io.WriteString(w, "noName")
+	} else if adminUser.Username == username {
 		io.WriteString(w, "fail")
 	} else if adminUser.Username != username && username != "" {
 		io.WriteString(w, "success")

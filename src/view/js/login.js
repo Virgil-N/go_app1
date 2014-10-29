@@ -36,8 +36,10 @@ require(["jquery"], function($){
 					alert("注册成功！");
 				}else if(responseText==="fail"){
 					alert("注册失败，名字已存在！");
+				}else if(responseText==="noName"){
+					alert("请输入名称！");
 				}else{
-					alert(responseText);
+					alert("error: "+responseText);
 				}
 			}
 		});
