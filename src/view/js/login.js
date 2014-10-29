@@ -20,4 +20,26 @@ require(["jquery"], function($){
 			}
 		});
 	});
+	$("#register-button").click(function(){
+		var username=$("#username").val();
+		var password=$("#password").val();
+		var formData={
+			username: username,
+			password: password
+		};
+		$.ajax({
+			type: "POST",
+			url: "/register",
+			data: formData,
+			success: function(responseText){
+				if(responseText==="success"){
+					alert("注册成功！");
+				}else if(responseText==="fail"){
+					alert("注册失败，名字已存在！");
+				}else{
+					alert(responseText);
+				}
+			}
+		});
+	});
 });

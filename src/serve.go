@@ -3,6 +3,7 @@ package main
 import (
 	"controller/accountAction"
 	"controller/login"
+	"controller/register"
 	"html/template"
 	"log"
 	"net/http"
@@ -26,6 +27,8 @@ func main() {
 	http.HandleFunc("/login", login.Login)
 	//记住自己加上Action的原因
 	http.HandleFunc("/accountAction", accountAction.AccountAction)
+	//注册
+	http.HandleFunc("/register", register.Register)
 	//注册服务并监听
 	err := http.ListenAndServe(":9090", nil)
 	if err != nil {
