@@ -45,7 +45,13 @@ func Register(w http.ResponseWriter, r *http.Request) {
 	} else if adminUser.Username == username {
 		io.WriteString(w, "fail")
 	} else if adminUser.Username != username && username != "" {
+		//怎么做啊？？？
+		//c.Insert({"username": username, "nickname": "op", "password": "12345", "age": 19, "gender": "M", "article": ["hah", "flow me"], "comment": ["yes", "ok", "not bad"]})
+		err = c.Insert(&User{username, 19, "M", "nick", "12345", []string{"hah", "flow me"}, []string{"yes", "ok", "not bad"}})
+		if err != nil {
+			io.WriteString(w, "error")
+		}
 		io.WriteString(w, "success")
-		//数据还没插入到数据库里面，上面只是演示一下
+
 	}
 }
