@@ -3,6 +3,7 @@ package main
 import (
 	"controller/accountAction"
 	"controller/login"
+	"controller/pagination"
 	"controller/register"
 	"html/template"
 	"log"
@@ -29,6 +30,10 @@ func main() {
 	http.HandleFunc("/accountAction", accountAction.AccountAction)
 	//注册
 	http.HandleFunc("/register", register.Register)
+	//分页
+	//http.HandleFunc("/prevPage", pagination.PrevPage)
+	//为毛会报错？？？？？？？？？？？？
+	http.HandleFunc("/nextPage", pagination.NextPage)
 	//注册服务并监听
 	err := http.ListenAndServe(":9090", nil)
 	if err != nil {
