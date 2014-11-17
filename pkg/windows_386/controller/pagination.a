@@ -1,5 +1,5 @@
 !<arch>
-__.PKGDEF       0           0     0     644     48964     `
+__.PKGDEF       0           0     0     644     49062     `
 go object windows 386 go1.3 X:precisestack
 
 $$
@@ -379,6 +379,7 @@ package pagination
 	func (@"net/http".rÂ·2 *@"net/http".Request "esc:0x0") @"net/http".wantsHttp10KeepAlive () (? bool)
 	func (@"net/http".reqÂ·2 *@"net/http".Request) @"net/http".write (@"net/http".wÂ·3 @"io".Writer, @"net/http".usingProxyÂ·4 bool, @"net/http".extraHeadersÂ·5 @"net/http".Header "esc:0x0") (? error)
 	func @"".PrevPage (@"".wÂ·1 @"net/http".ResponseWriter, @"".rÂ·2 *@"net/http".Request "esc:0x0")
+	func @"".NextPage (@"".wÂ·1 @"net/http".ResponseWriter, @"".rÂ·2 *@"net/http".Request "esc:0x0")
 	func @"".init ()
 	var @"time".months [12]string
 	var @"time".days [7]string
@@ -387,11 +388,12 @@ package pagination
 	var @"bufio".ErrInvalidUnreadRune error
 
 $$
-_go_.8          0           0     0     644     2267      `
+_go_.8          0           0     0     644     3068      `
 go object windows 386 go1.3 X:precisestack
 
 !
   go13ldio.anet/http.a ş"".PrevPage  À  Àd‹   ‹‰    ;!w1ÿ¸   è    ëáƒì Ç$    ‹\$$‰\$‹\$(‰\$è    \$‰Ş<$ü¥¥5    |$ü¥¥è    ƒÄ Ã      2  0runtime.morestack_noctxt   J  type.io.Writer   t  runtime.convI2I   ˜  (go.string."prevPage"   °  io.WriteString   @  "".r ,type.*net/http.Request "".w  8type.net/http.ResponseWriter "@=? ` ":  9*)" 
- 9'     TgclocalsÂ·099986b79bd4df464b634a14757f9178 TgclocalsÂ·a7a3692b8e27e823add69ec4239ba55f     ˜E:/software/GitHub/workspace/go_app1/src/controller/pagination/pagination.goş"".init     d‹   ‹‰    ;!w1ÿ1Àè    ëä€=     t€=    uÃè    Æ    è    è    Æ    Ã      ,  0runtime.morestack_noctxt   <  "".initdoneÂ·   N  "".initdoneÂ·   `  "runtime.throwinit   p  "".initdoneÂ·   |  net/http.init   †  io.init   ’  "".initdoneÂ·        P P P 
+ 9'     TgclocalsÂ·099986b79bd4df464b634a14757f9178 TgclocalsÂ·a7a3692b8e27e823add69ec4239ba55f     ˜E:/software/GitHub/workspace/go_app1/src/controller/pagination/pagination.goş"".NextPage  À  Àd‹   ‹‰    ;!w1ÿ¸   è    ëáƒì Ç$    ‹\$$‰\$‹\$(‰\$è    \$‰Ş<$ü¥¥5    |$ü¥¥è    ƒÄ Ã      2  0runtime.morestack_noctxt   J  type.io.Writer   t  runtime.convI2I   ˜  (go.string."nextPage"   °  io.WriteString   @  "".r ,type.*net/http.Request "".w  8type.net/http.ResponseWriter "@=? ` ":  9*)" 
+ 9'     TgclocalsÂ·099986b79bd4df464b634a14757f9178 TgclocalsÂ·a7a3692b8e27e823add69ec4239ba55f     ˜E:/software/GitHub/workspace/go_app1/src/controller/pagination/pagination.goş"".init     d‹   ‹‰    ;!w1ÿ1Àè    ëä€=     t€=    uÃè    Æ    è    è    Æ    Ã      ,  0runtime.morestack_noctxt   <  "".initdoneÂ·   N  "".initdoneÂ·   `  "runtime.throwinit   p  "".initdoneÂ·   |  net/http.init   †  io.init   ’  "".initdoneÂ·        P P P 
  /! 
- /!     TgclocalsÂ·3280bececceccd33cb74587feedb1f9f TgclocalsÂ·3280bececceccd33cb74587feedb1f9f     ˜E:/software/GitHub/workspace/go_app1/src/controller/pagination/pagination.goş(go.string."prevPage" (  "       prevPage   (go.string."prevPage"   şTgclocalsÂ·a7a3692b8e27e823add69ec4239ba55f              şTgclocalsÂ·099986b79bd4df464b634a14757f9178         +    şTgclocalsÂ·3280bececceccd33cb74587feedb1f9f           şTgclocalsÂ·3280bececceccd33cb74587feedb1f9f           ş,"".initdoneÂ·  type.uint8   ş"".PrevPageÂ·f          "".PrevPage   ş$runtime.convI2IÂ·f          runtime.convI2I   ş"io.WriteStringÂ·f          io.WriteString   ş"".initÂ·f          "".init   ş(runtime.throwinitÂ·f          "runtime.throwinit   ş net/http.initÂ·f          net/http.init   şio.initÂ·f          io.init   ş&go.string."runtime"            runtime   &go.string."runtime"   ş,go.importpath.runtime.            &go.string."runtime"   ş(go.string."net/http" (  "       net/http   (go.string."net/http"   ş.go.importpath.net/http.            (go.string."net/http"   şgo.string."io"          io   go.string."io"   ş"go.importpath.io.            go.string."io"   ş"runtime.zerovalue      ÿÿgo13ld 
+ /!     TgclocalsÂ·3280bececceccd33cb74587feedb1f9f TgclocalsÂ·3280bececceccd33cb74587feedb1f9f     ˜E:/software/GitHub/workspace/go_app1/src/controller/pagination/pagination.goş(go.string."prevPage" (  "       prevPage   (go.string."prevPage"   şTgclocalsÂ·a7a3692b8e27e823add69ec4239ba55f              şTgclocalsÂ·099986b79bd4df464b634a14757f9178         +    ş(go.string."nextPage" (  "       nextPage   (go.string."nextPage"   şTgclocalsÂ·a7a3692b8e27e823add69ec4239ba55f              şTgclocalsÂ·099986b79bd4df464b634a14757f9178         +    şTgclocalsÂ·3280bececceccd33cb74587feedb1f9f           şTgclocalsÂ·3280bececceccd33cb74587feedb1f9f           ş,"".initdoneÂ·  type.uint8   ş"".PrevPageÂ·f          "".PrevPage   ş$runtime.convI2IÂ·f          runtime.convI2I   ş"io.WriteStringÂ·f          io.WriteString   ş"".NextPageÂ·f          "".NextPage   ş"".initÂ·f          "".init   ş(runtime.throwinitÂ·f          "runtime.throwinit   ş net/http.initÂ·f          net/http.init   şio.initÂ·f          io.init   ş&go.string."runtime"            runtime   &go.string."runtime"   ş,go.importpath.runtime.            &go.string."runtime"   ş(go.string."net/http" (  "       net/http   (go.string."net/http"   ş.go.importpath.net/http.            (go.string."net/http"   şgo.string."io"          io   go.string."io"   ş"go.importpath.io.            go.string."io"   ş"runtime.zerovalue      ÿÿgo13ld
