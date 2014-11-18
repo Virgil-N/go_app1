@@ -34,6 +34,8 @@ func main() {
 	http.HandleFunc("/prevPage", pagination.PrevPage)
 	//为毛会报错？(因为没清除pkg目录下的文件)
 	http.HandleFunc("/nextPage", pagination.NextPage)
+	//跳转页面
+	http.HandleFunc("/goToPage", pagination.GoToPage)
 	//注册服务并监听
 	err := http.ListenAndServe(":9090", nil)
 	if err != nil {

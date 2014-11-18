@@ -24,9 +24,6 @@ body{
 	float:right;
 }
 
-/*---------------主体部分---------------*/
-
-
 /*---------------左侧栏---------------*/
 #left-content{
 
@@ -37,3 +34,12 @@ body{
 #tag-area a{
 	margin:5px;
 }
+/*---------------主体部分---------------*/
+#pageValue{
+	width:30px;
+}
+.pagination a{
+	margin-right:10px;
+	text-decoration:none;
+}
+

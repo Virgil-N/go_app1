@@ -17,5 +17,25 @@ require(["jquery", "common"], function($, commonFunction) {
             commonFunction.setCookie(COOKIE_NAME, "fail", -1);
         }
     });
+    //跳转页面
+    $("#go").click(function(event){
+        var pageValue=~~($("#pageValue").val());
+        if(pageValue.length===0||pageValue<=0){
+            alert("请输入正整数！");
+            return false;
+        }
+        var dataObj={
+            "pageValue": pageValue
+        };
+        $.ajax({
+           type: "POST",
+           url: "goToPage",
+           data: dataObj,
+           success: function(msg){
+                alert( "Data Send: " + msg );
+            }
+        });
+        event.preventDefault();
+    });
 
 });
