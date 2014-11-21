@@ -5,6 +5,7 @@ import (
 	"labix.org/v2/mgo"
 	"labix.org/v2/mgo/bson"
 	"net/http"
+	"time"
 )
 
 //下面的结构体声明每个controller都要加？
@@ -20,7 +21,7 @@ type User struct {
 
 func Register(w http.ResponseWriter, r *http.Request) {
 	username := r.FormValue("username")
-	//password := r.FormValue("password")
+	password := r.FormValue("password")
 	w.Header().Set("Content-Type", "text/plain")
 
 	//使用数据库
@@ -40,8 +41,8 @@ func Register(w http.ResponseWriter, r *http.Request) {
 	// } else if adminUser.username != username && username != "" {
 	// 	return "succes"
 	// }
-	if username == "" {
-		io.WriteString(w, "noName")
+	if username == "" || password == "" {
+		io.WriteString(w, "noValue")
 	} else if adminUser.Username == username {
 		io.WriteString(w, "fail")
 	} else if adminUser.Username != username && username != "" {
@@ -51,6 +52,16 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			io.WriteString(w, "error")
 		}
+		//注册成功添加cookie
+		expires := time.Now().AddDate(0, 0, 1)
+		myCookie := http.Cookie{
+			Name:    "testMyCookie",
+			Value:   username,
+			Path:    "/",     //所有页面都可以读取cookie
+			Expires: expires, //可加可不加？
+			MaxAge:  86400,
+		}
+		http.SetCookie(w, &myCookie)
 		io.WriteString(w, "success")
 
 	}

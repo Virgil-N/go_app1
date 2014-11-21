@@ -1,5 +1,5 @@
 require(["jquery"], function($){
-	//点击发起ajax请求
+	//点击登录按钮发起ajax请求
 	$("#login-button").click(function(){
 		var username=$("#username").val();
 		var password=$("#password").val();
@@ -20,6 +20,7 @@ require(["jquery"], function($){
 			}
 		});
 	});
+	//注册
 	$("#register-button").click(function(){
 		var username=$("#username").val();
 		var password=$("#password").val();
@@ -34,10 +35,11 @@ require(["jquery"], function($){
 			success: function(responseText){
 				if(responseText==="success"){
 					alert("注册成功！");
+					window.location.href="/";
 				}else if(responseText==="fail"){
 					alert("注册失败，名字已存在！");
-				}else if(responseText==="noName"){
-					alert("请输入名称！");
+				}else if(responseText==="noValue"){
+					alert("请输入名称和密码！");
 				}else{
 					alert("error: "+responseText);
 				}
