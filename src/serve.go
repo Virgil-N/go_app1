@@ -17,7 +17,7 @@ func indexPage(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	//静态文件处理函数，这些表明根目录是src？
+	//静态文件处理函数
 	http.Handle("/css/", http.FileServer(http.Dir("view")))
 	http.Handle("/js/", http.FileServer(http.Dir("view")))
 	http.Handle("/img/", http.FileServer(http.Dir("view")))
