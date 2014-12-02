@@ -1,0 +1,45 @@
+/*---------------全局---------------*/
+body{
+	padding-top:70px;
+}
+.article-text{
+	text-indent: 2em;
+}
+.article-text:first-letter{
+	font-size: 2em;
+}
+/*---------------nav---------------*/
+#nickname{
+	height:50px;
+	line-height: 50px;
+}
+#nickname a{
+	display: inline-block;
+}
+/*---------------header---------------*/
+#head-picture{
+	width:100%;
+}
+#login-link{
+	float:right;
+}
+
+/*---------------左侧栏---------------*/
+#left-content{
+
+}
+#head-picture{
+	margin-bottom: 20px;
+}
+#tag-area a{
+	margin:5px;
+}
+/*---------------主体部分---------------*/
+#pageValue{
+	width:30px;
+}
+.pagination a{
+	margin-right:10px;
+	text-decoration:none;
+}
+

@@ -12,15 +12,15 @@ import (
 
 func indexPage(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Content-Type", "text/html")
-	t, _ := template.ParseFiles("./view/page/index.html")
+	t, _ := template.ParseFiles("view/page/index.html")
 	t.Execute(w, nil)
 }
 
 func main() {
 	//静态文件处理函数
-	http.Handle("/css/", http.FileServer(http.Dir("view")))
-	http.Handle("/js/", http.FileServer(http.Dir("view")))
-	http.Handle("/img/", http.FileServer(http.Dir("view")))
+	http.Handle("/css/", http.FileServer(http.Dir("static")))
+	http.Handle("/js/", http.FileServer(http.Dir("static")))
+	http.Handle("/img/", http.FileServer(http.Dir("static")))
 
 	//动态文件处理函数
 	http.HandleFunc("/", indexPage)

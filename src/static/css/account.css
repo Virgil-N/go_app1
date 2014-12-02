@@ -1,0 +1,30 @@
+body{
+	padding-top:70px;
+}
+.article-text{
+	text-indent: 2em;
+}
+.article-text:first-letter{
+	font-size: 2em;
+}
+/*---------------nav---------------*/
+#nickname{
+	
+}
+#nickname a{
+	display: inline-block;
+}
+/*---------------header---------------*/
+#head-picture{
+	width:100%;
+}
+#login-link{
+	float:right;
+}
+
+/**/
+#account-form{
+	margin-top:100px;
+}
+
+

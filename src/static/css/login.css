@@ -1,0 +1,24 @@
+body{
+	padding-top:70px;
+}
+/*---------------登录模块---------------*/
+#form-wrap{
+	padding:50px 0;
+	border:1px solid #CCCCCC;
+	background-color:#EEEEEE;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	height:270px;
+	width:500px;
+}
+
+#login-form .form-group:last-child{
+	margin-bottom: 0;
+}
+
+
+
