@@ -23,7 +23,7 @@ type User struct {
 func Login(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "GET" {
 		w.Header().Add("Content-Type", "text/html")
-		t, _ := template.ParseFiles("view/page/login.html")
+		t, _ := template.ParseFiles("view/template/login.html")
 		t.Execute(w, nil)
 	} else {
 		username := r.FormValue("username")

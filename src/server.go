@@ -1,10 +1,10 @@
 package main
 
 import (
-	"controller/accountAction"
-	"controller/login"
-	"controller/pagination"
-	"controller/register"
+	"controllers/accountAction"
+	"controllers/login"
+	"controllers/pagination"
+	"controllers/register"
 	"html/template"
 	"log"
 	"net/http"
@@ -12,15 +12,15 @@ import (
 
 func indexPage(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Content-Type", "text/html")
-	t, _ := template.ParseFiles("view/page/index.html")
+	t, _ := template.ParseFiles("view/template/index.html")
 	t.Execute(w, nil)
 }
 
 func main() {
 	//静态文件处理函数
-	http.Handle("/css/", http.FileServer(http.Dir("static")))
-	http.Handle("/js/", http.FileServer(http.Dir("static")))
-	http.Handle("/img/", http.FileServer(http.Dir("static")))
+	http.Handle("/css/", http.FileServer(http.Dir("public")))
+	http.Handle("/js/", http.FileServer(http.Dir("public")))
+	http.Handle("/img/", http.FileServer(http.Dir("public")))
 
 	//动态文件处理函数
 	http.HandleFunc("/", indexPage)

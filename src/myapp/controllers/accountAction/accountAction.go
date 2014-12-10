@@ -38,7 +38,7 @@ func AccountAction(w http.ResponseWriter, r *http.Request) {
 		//现在就剩模板的部分了，哈哈
 		//该死的模板(我错了，原来是路径搞的鬼！！！已经把account改成accountAction了，md查找原因花了1天时间！！)
 		w.Header().Add("Content-Type", "text/html")
-		t, _ := template.ParseFiles("view/page/account.html")
+		t, _ := template.ParseFiles("view/template/account.html")
 		//t.ExecuteTemplate(w, "tags", data)//为毛把原页面移除了？
 		err = t.Execute(w, adminUser) //这个是ok的，嘿嘿
 	}
